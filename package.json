@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/VzqzAc/Marlyc/issues"
   },
-  "homepage": "https://github.com/VzqzAc/Marlyc#readme"
+  "homepage": "https://github.com/VzqzAc/Marlyc#readme",
+  "dependencies": {
+    "mongoose": "^4.6.0"
+  }
 }
