@@ -1,0 +1,23 @@
+{
+  "name": "marlyc",
+  "version": "1.0.0",
+  "description": "Administration system for marlyc's gym",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VzqzAc/Marlyc.git"
+  },
+  "keywords": [
+    "gym",
+    "electron"
+  ],
+  "author": "Omar Vazquez VzqzAc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VzqzAc/Marlyc/issues"
+  },
+  "homepage": "https://github.com/VzqzAc/Marlyc#readme"
+}
