@@ -1,26 +1,22 @@
 {
-  "name": "marlyc",
-  "version": "1.0.0",
-  "description": "Administration system for marlyc's gym",
+  "name": "electron-with-express",
+  "description": "Demonstrates spawning Express from Electron and using it to serve content",
+  "version": "0.0.3",
   "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/VzqzAc/Marlyc.git"
-  },
-  "keywords": [
-    "gym",
-    "electron"
+  "authors": [
+    "Frank Hale <frankhale@gmail.com>"
   ],
-  "author": "Omar Vazquez VzqzAc",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/VzqzAc/Marlyc/issues"
+  "license": "GPL-3.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./start-electron.js"
   },
-  "homepage": "https://github.com/VzqzAc/Marlyc#readme",
   "dependencies": {
-    "mongoose": "^4.6.0"
+    "electron-prebuilt": "^1.3.3",
+    "jquery": "^3.1.0",
+    "keymaster": "^1.6.2",
+    "lodash": "^4.13.1",
+    "request": "^2.72.0",
+    "strip": "^3.0.0"
   }
 }
