@@ -1,0 +1,6 @@
+# Dependencies
+node_modules/
+# VS code
+.vscode
+# Mongo
+express-app/mongodb

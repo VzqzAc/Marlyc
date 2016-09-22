@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('express-app:server');
 var http = require('http');
+var mongoose = require('mongoose');
 
 /**
  * Get port from environment and store in Express.
@@ -23,8 +24,22 @@ var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
+ * Checking for mongodb server before starting express server
  */
 
+mongoose.connect('mongodb:localhost', function(err, db){
+  if(err){
+    console.log('No mongodb server running');
+  } else {
+    var attachDB = function(req, res, next){
+      req.db = db;
+      next();
+    };
+    server.listen(port, function(){
+      console.log('Express server listening on port ' + port);
+    });
+  }
+});
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);

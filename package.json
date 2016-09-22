@@ -18,5 +18,8 @@
     "lodash": "^4.13.1",
     "request": "^2.72.0",
     "strip": "^3.0.0"
+  },
+  "devDependencies": {
+    "jasmine": "^2.5.2"
   }
 }
