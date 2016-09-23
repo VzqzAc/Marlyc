@@ -9,13 +9,15 @@ describe("Base view", () => {
 
   it("create and render new view", function(next) {
 		var responseMockup = {
-			render: function(template, data) {
+      //loggg: console.log('tf'),
+			render: (template, data) => {
 				expect(data.myProperty).toBeDefined();
+        console.log(data);
 				expect(data.myProperty).toBe('value');
 				expect(template).toBe('template-file');
 				next();
 			}
-		}
+		};
 		var v = new View(responseMockup, 'template-file');
 		v.render({myProperty: 'value'});
 	});
