@@ -9,7 +9,7 @@ module.exports.prototype = {
 			this.response = response;
 			this.template = template;
 		};
-    // This is better than assign module.exports to the Child obj
+    // This is better than assign module.exports to the Child obj (Child = module.exports) <= throws an error when running unit test
 		util.inherits(Child, module.exports);
 		for(var key in properties) {
 			Child.prototype[key] = properties[key];
