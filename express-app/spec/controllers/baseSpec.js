@@ -5,8 +5,6 @@ describe('Base controller', () => {
     expect(BaseController.extend).toBeDefined();
     expect(BaseController.run).toBeDefined();
     var child = BaseController.extend({ name: "my child controller" });
-    console.log(BaseController);
-    console.log(child);
     expect(child.run).toBeDefined();
     expect(child.name).toBeDefined();
     expect(child.name).toBe('my child controller');
