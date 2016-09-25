@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
-# VS code
-.vscode
 # Mongo
 express-app/mongodb
+# In order to run electron an express together we need another node.exe instance and node.lib to work
+node.exe
+node.lib
