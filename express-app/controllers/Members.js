@@ -6,7 +6,7 @@ const MembersModel = new (require('../models/Member'));
 var self = this;
 module.exports = BaseController.extend({
   name: 'Members',
-  run: (req, res, next) => {
+  index: (req, res) => {
     
   }
 });

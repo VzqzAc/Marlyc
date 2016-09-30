@@ -38,6 +38,7 @@ mongoose.connect('mongodb://localhost:27017/marlyc', function(err, db){
     console.log(err);
   } else {
     app.db = db;
+    console.log(mongoose.connection);
     http.createServer(app).listen(port, function(){
       console.log('Express server listening on port ' + port);
     });
