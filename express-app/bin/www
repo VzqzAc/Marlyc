@@ -31,7 +31,7 @@ app.set('port', port);
  * Listen on provided port, on all network interfaces.
  * Checking for mongodb server before starting express server
  */
-
+console.log('before mongo');
 mongoose.connect('mongodb://localhost:27017/marlyc', function(err, db){
   if(err){
     console.log('No mongodb server running');

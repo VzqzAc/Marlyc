@@ -55,10 +55,10 @@
 
     <script>
       window.$ = window.jQuery = require("./node_modules/jquery/dist/jquery.min.js");
-
+      console.log('Supposed to start express');
       const expressAppUrl = "http://localhost:3000",
             spawn = require("child_process").spawn,
-            node = spawn("node.exe", ["./express-app/bin/www"], { cwd: process.cwd() }),
+            node = spawn(".\\node.exe", ["./express-app/bin/www"], { cwd: process.cwd() }),
             request = require("request"),
             _ = require("lodash"),
             key = require("keymaster"),
@@ -99,9 +99,6 @@
         });
       }
 
-      redirectOutput(node.stdout);
-      redirectOutput(node.stderr);
-
       function checkServerRunning() {
         request(expressAppUrl, function (error, response, body) {
           if (!error && response.statusCode == 200) {
@@ -114,6 +111,8 @@
         });
       }
 
+      redirectOutput(node.stdout);
+      redirectOutput(node.stderr);
       checkServerRunning();
     </script>
   </body>

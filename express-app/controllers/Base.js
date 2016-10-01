@@ -7,7 +7,11 @@ var extend = function(child) {
 module.exports = {
   name: "base",
   extend: extend,
-  run: function(req, res, next) {
-
-  }
+  index: (req, res) => {  },
+  edit: (req, res) => {  },
+  show: (req, res) => {  },
+  new: (req, res) => {  },
+  create: (req, res) => {  },
+  update: (req, res) => {  },
+  destroy: (req, res) => {  }
 };
