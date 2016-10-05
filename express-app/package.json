@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "prestart": "./mongoServer",
+    "preinstall": "elevate mongod --config \"C:\\Users\\Alejandra\\Documents\\Omar\\NodeJS\\Marlyc\\express-app\"",
     "start": "node ./bin/www"
   },
   "dependencies": {

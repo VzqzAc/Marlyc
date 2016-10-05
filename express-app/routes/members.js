@@ -7,7 +7,7 @@ router.route('/members')
     members.index(req, res);
   })
   .post((req, res) => {
-    members.save(req, res);
+    members.create(req, res);
   });
 
 router.route('members/:id')
