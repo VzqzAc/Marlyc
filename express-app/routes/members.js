@@ -2,7 +2,7 @@ const express = require('express');
 var router = express.Router();
 const members = require('../controllers/Members');
 
-router.route('/members')
+router.route('/')
   .get((req, res) => {
     members.index(req, res);
   })
@@ -10,7 +10,7 @@ router.route('/members')
     members.create(req, res);
   });
 
-router.route('members/:id')
+router.route('/:id')
   .get((req, res) => {
     members.show(req, res);
   })
