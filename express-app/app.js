@@ -13,10 +13,13 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, '/templates'));
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico
+app.use('./public/js', express.static(__dirname + 'node_modules/bootstrap/dist/js')); //redirect bootstrap JS to public
+app.use('./public/js', express.static(__dirname + 'node_modules/jquery/dist')); //redirect jquery to public
+app.use('./public/stylesheets', express.static(__dirname + 'node_modules/bootstrap/dist/css')); //redirect bootstrap css to public
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

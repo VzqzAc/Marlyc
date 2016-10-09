@@ -1,8 +1,5 @@
-const Model = require('./Base'),
-      crypto = require('crypto'),
-      mongoose = require('mongoose');
-      model = new Model();
-      var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 var memberSchema = new Schema({
   name: String,
@@ -24,6 +21,14 @@ var memberSchema = new Schema({
   },
   suspended: Boolean
 });
+
+memberSchema.methods.all = () => {
+  return this.find({}, (err, members) => {
+                                return (err ? err : members);
+                              });
+                            };
+
+//let Member = mongoose.model('Member', memberSchema);
 
 module.exports = mongoose.model('Member', memberSchema);
 

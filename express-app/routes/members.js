@@ -5,6 +5,7 @@ const members = require('../controllers/Members');
 router.route('/')
   .get((req, res) => {
     members.index(req, res);
+    console.log(req + '------' + res);
   })
   .post((req, res) => {
     members.create(req, res);
