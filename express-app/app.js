@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
+var expressValidator = require('express-validator');
+var engine = require('ejs-locals')
 
 var db = null;
 
@@ -12,6 +14,7 @@ var db = null;
 var app = express();
 
 // view engine setup
+app.engine('ejs', engine);
 app.set('views', path.join(__dirname, '/templates'));
 app.set('view engine', 'ejs');
 
@@ -22,7 +25,8 @@ app.use('./public/js', express.static(__dirname + 'node_modules/jquery/dist')); 
 app.use('./public/stylesheets', express.static(__dirname + 'node_modules/bootstrap/dist/css')); //redirect bootstrap css to public
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // Controllers

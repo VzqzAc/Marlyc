@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var memberSchema = new Schema({
+  _id: Number,
   name: String,
   address: String,
   phone: Number,
@@ -15,8 +16,9 @@ var memberSchema = new Schema({
   observations: String,
   _activity: {
     _id: {
-      type: Schema.ObjectId,
-      ref: 'Activity'
+      type: Number,
+      ref: 'Activity',
+      required: true
     }
   },
   suspended: Boolean
