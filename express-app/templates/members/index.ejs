@@ -2,7 +2,7 @@
   <%- title %>
 </h1>
 <div>
-    <% if(typeof members !== 'undefined') {%>
+    <% if(members.length) {%>
       <ul>
         <%switch(members){
           case ((members instanceof Error) === true): %>

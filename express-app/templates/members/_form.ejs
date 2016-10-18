@@ -8,7 +8,16 @@
     <input class="form-control" id="address" placeholder="Address">
   </div>
   <div class="form-group">
-    <label for="credentialType">Name</label>
+    <label for="dateOfBirth">Date of birth</label>
+    <input type="date" class="form-control" id="dateOfBirth" placeholder="mm/dd/yyyy">
+  </div>
+  <div class="form-group">
+    <label for="credentialType">Credential Type</label>
     <input class="form-control" id="credentialType" placeholder="Credential type">
   </div>
+  <select class="form-group">
+    <% activities.forEach((activity) => { %>
+      <option><%= activity.name %></options>
+    <% }) %>
+  </select>
 </form>

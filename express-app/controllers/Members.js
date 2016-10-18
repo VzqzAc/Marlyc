@@ -1,30 +1,27 @@
 /*--- Controller ---*/
 const BaseController = require('./Base');
 
-/*--- Form to views ---*/
-const Form = require('../views/members/_form'),
-      member_form = Form.form,
-      reg_form = Form.reg_form;
 
 /*--- Database ---*/
-let Member = require('../models/Member');
-Member = require('mongoose').model('Member').schema;
+const Member = new (require('../models/Member'));
+const Activity = require('../models/Activity');
 
-let members = Member.all;
+/*-- DB calls --*/
+let members = Member.all();
+let activities = Activity.all();
 
-
-var self = this;
+/*-- Controller methods extended from BaseController --*/
 module.exports = BaseController.extend({
   name: 'Members',
   index: (req, res) => {
-    res.render('members/index', {title: 'members', members: members});
-    console.log(members);
+    res.render('members/index', {title: 'Members', members: members});
   },
   show: (req, res) => {
     res.render('members/show', {title:'Show for member ' + req.params.id, members: 'looking at member #' + req.params.id});
   },
   new: (req, res) => {
-    res.render('members/new', {title:'New member', content: member_form});
+    console.log(activities);
+    res.render('members/new', {title:'New member', activities: activities});
   },
   create: (req, res) => {
     console.log('entro a algo');

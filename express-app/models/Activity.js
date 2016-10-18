@@ -12,12 +12,11 @@ var activitySchema = new Schema({
   }]
 });
 
-activitySchema.methods.all = () => {
-  return this.find({}, (err, members) => {
-                                return (err ? err : members);
+activitySchema.statics.all = function() {
+  return this.model('Activity').find((err, activities) => {
+                                console.log(activities);
+                                return activities;
                               });
                             };
-
-//let Member = mongoose.model('Member', memberSchema);
 
 module.exports = mongoose.model('Activity', activitySchema);
