@@ -1,24 +1,38 @@
 <h1>
   <%- title %>
 </h1>
-<div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Folio</th>
+      <th>Tipo credencial</th>
+      <th>Domicilio</th>
+    </tr>
+  </thead>
+  <tbody>
     <% if(members.length) {%>
-      <ul>
+      <tr class="active">
         <%switch(members){
           case ((members instanceof Error) === true): %>
-            <li>Error: <%= members %></li>
+            <td>Error: <%= members %><td>
           <%break;
           case (members.length === 0): %>
-            <li>No members found</li>
+            <td>No members found</td>
           <%break;
             default:
              members.forEach((member)=> {%>
-              <li><%=member.name%></li>
+              <th scope="row"><%- member._id %></th>
+              <td><%- member.name %></td>
+              <td><%- member.requestNumber %></td>
+              <td><%- member.credentialTypeID %></td>
+              <td><%- member.address %></td>
               <% });
             }%>
-      </ul>
+      </tr>
       <%}else{%>
             <div>No members found</div>
           <%}%>
-  </ul>
-</div>
+  </tbody>
+</table>

@@ -12,8 +12,13 @@ var activitySchema = new Schema({
   }]
 });
 
-activitySchema.methods.all = function() {
-  return mongoose.model('Activity').find({});
-                            };
+activitySchema.methods.all = function({}, callback) {
+  return mongoose.model('Activity').find({}, function(error, activities) {
+    if(error) callback(error, "");
+    else callback("", activities);
+  });
+};
+
+//activitySchema.methods.findWithQuery = function(query, )
 
 module.exports = mongoose.model('Activity', activitySchema);

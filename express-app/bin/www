@@ -8,6 +8,8 @@ var app = require('../app');
 var debug = require('debug')('express-app:server');
 var http = require('http');
 var mongoose = require('mongoose');
+const autoIncrement = require('mongoose-auto-increment');
+
 
 /**
   * Controllers (not sure to put them here or in app.js)
@@ -39,6 +41,7 @@ mongoose.connect('mongodb://localhost:27017/marlyc', function(err, db){
     app.db = db;
     http.createServer(app).listen(port, function(){
       console.log('Express server listening on port ' + port);
+      autoIncrement.initialize(mongoose.connection);
     });
   }
 });

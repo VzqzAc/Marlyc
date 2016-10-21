@@ -1,3 +1,7 @@
-$('.datepicker').datepicker({
-  format: 'dd-mm-yyyy',
-})
+$(document).ready(function() {
+  $('.datepicker').datepicker({
+    language: 'es',
+    format: 'dd-mm-yyyy',
+    todayHighlight: true
+  })
+});
