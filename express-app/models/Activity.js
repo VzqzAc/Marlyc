@@ -12,11 +12,8 @@ var activitySchema = new Schema({
   }]
 });
 
-activitySchema.statics.all = function() {
-  return this.model('Activity').find((err, activities) => {
-                                console.log(activities);
-                                return activities;
-                              });
+activitySchema.methods.all = function() {
+  return mongoose.model('Activity').find({});
                             };
 
 module.exports = mongoose.model('Activity', activitySchema);

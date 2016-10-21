@@ -22,6 +22,8 @@ app.set('view engine', 'ejs');
 app.use('./public/js', express.static(path.join(__dirname + 'node_modules/bootstrap/dist/js'))); //redirect bootstrap JS to public
 app.use('./public/js', express.static(path.join(__dirname + 'node_modules/jquery/dist/jquery.js'))); //redirect jquery to public
 app.use('./public/stylesheets', express.static(path.join(__dirname + 'node_modules/bootstrap/dist/css'))); //redirect bootstrap css to public
+app.use('/scripts', express.static(__dirname + '/node_modules/bootstrap-datepicker/dist/js'));
+app.use('/styles', express.static(__dirname + '/node_modules/bootstrap-datepicker/dist/css'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

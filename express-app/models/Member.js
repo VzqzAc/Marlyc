@@ -24,10 +24,4 @@ var memberSchema = new Schema({
   suspended: Boolean
 });
 
-memberSchema.methods.all = function() {
-  return this.model('Member').find({}, (err, members) => {
-                                return (err ? err : members);
-                              });
-                            };
-
 module.exports = mongoose.model('Member', memberSchema);
