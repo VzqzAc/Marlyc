@@ -1,5 +1,24 @@
-h1
-  =title
-div
-  h1
-    =content
+<h1><%- title %></h1>
+<% if (message) {%>
+  <div class="alert alert-success alert-dismissable fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong><%- message %></strong>
+  </div>
+<%}%>
+<div class="jumbotron">
+  <div class="container">
+    <ul class="list-group">
+        <li class="list-group-item"><%- member.address %></li>
+        <li class="list-group-item"><%- member.phone %></li>
+        <li class="list-group-item"><%- member.credentialTypeID %></li>
+        <li class="list-group-item"><%- member.credentialNumber %></li>
+        <li class="list-group-item"><%- member.requestNumber %></li>
+        <li class="list-group-item"><%- member.birthPlace %></li>
+        <li class="list-group-item"><%- member.ocupation %></li>
+        <li class="list-group-item"><%- member.birthDate %></li>
+        <li class="list-group-item"><%- member.inscriptionDate %></li>
+    </ul>
+  </div>
+</div>

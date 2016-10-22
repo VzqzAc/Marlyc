@@ -12,7 +12,7 @@ var memberSchema = new Schema({
   credentialNumber: Number,
   requestNumber: Number,
   inscriptionDate: { type: Date, default: Date.now },
-  birthDate: Date,
+  birthDate: {type: Date, default: Date.now },
   birthPlace: String,
   ocupation: String,
   observations: {type: String, default: ""},

@@ -8,8 +8,6 @@ var app = require('../app');
 var debug = require('debug')('express-app:server');
 var http = require('http');
 var mongoose = require('mongoose');
-const autoIncrement = require('mongoose-auto-increment');
-
 
 /**
   * Controllers (not sure to put them here or in app.js)
@@ -33,7 +31,7 @@ app.set('port', port);
  * Listen on provided port, on all network interfaces.
  * Checking for mongodb server before starting express server
  */
-mongoose.connect('mongodb://localhost:27017/marlyc', function(err, db){
+mongoose.connect('mongodb://127.0.0.1:27017/marlyc', function(err, db){
   if(err){
     console.log('No mongodb server running');
     console.log(err);
@@ -41,7 +39,6 @@ mongoose.connect('mongodb://localhost:27017/marlyc', function(err, db){
     app.db = db;
     http.createServer(app).listen(port, function(){
       console.log('Express server listening on port ' + port);
-      autoIncrement.initialize(mongoose.connection);
     });
   }
 });

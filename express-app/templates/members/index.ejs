@@ -1,38 +1,34 @@
-<h1>
-  <%- title %>
-</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Nombre</th>
-      <th>Folio</th>
-      <th>Tipo credencial</th>
-      <th>Domicilio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% if(members.length) {%>
-      <tr class="active">
-        <%switch(members){
-          case ((members instanceof Error) === true): %>
-            <td>Error: <%= members %><td>
-          <%break;
-          case (members.length === 0): %>
-            <td>No members found</td>
-          <%break;
-            default:
-             members.forEach((member)=> {%>
-              <th scope="row"><%- member._id %></th>
-              <td><%- member.name %></td>
-              <td><%- member.requestNumber %></td>
-              <td><%- member.credentialTypeID %></td>
-              <td><%- member.address %></td>
-              <% });
-            }%>
+<div class="row row-eq-height">
+  <div class="col-md-4">
+      <h2><%- title %></h2>
+  </div>
+  <div class="col-md-6">
+    <a href="/members/new"><button class="btn btn-primary pull-right">New member</button></a>
+  </div>
+</div>
+<% if(members.length) { %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Folio</th>
+        <th>Tipo credencial</th>
+        <th>Domicilio</th>
       </tr>
-      <%}else{%>
-            <div>No members found</div>
-          <%}%>
+    </thead>
+    <tbody>
+      <% members.forEach((member)=> {%>
+      <tr class="active">
+      <th scope="row"><%- member._id %></th>
+      <td><a href="<%- '/members/' + member._id%>"><%- member.name %></a></td>
+      <td><%- member.requestNumber %></td>
+      <td><%- member.credentialTypeID %></td>
+      <td><%- member.address %></td>
+    </tr>
+      <% });%>
   </tbody>
 </table>
+<%}else{%>
+        <div>No members found</div>
+<%}%>

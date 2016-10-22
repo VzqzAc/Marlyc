@@ -13,7 +13,7 @@
         <input id="primary-phone" type="tel" class="form-control" name="phone" placeholder="Primary phone">
       </div>
       <div class="col-md-6">
-        <button class="btn btn-sm btn-primary pull-right">Additional phone</button>
+        <button class="btn btn-sm btn-primary pull-right disabled">Additional phone</button>
       </div>
     </div>
   </div>
@@ -51,8 +51,9 @@
     <label for="ocupation">Ocupation</label>
     <input class="form-control" id="ocupation" name="ocupation" placeholder="Ocupation">
   </div>
-  <select class="form-group" name="activity">
-    <% for(var act in activities) { %>
+  <select class="form-control" name="activity">
+    <% console.log(activities); for(var act in activities) { %>
+      <div><% console.log(activities)%></div>
       <option name='<%- activities[act].name.toLowerCase() %>'><%- activities[act].name %></options>
     <% } %>
   </select>

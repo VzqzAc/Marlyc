@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var expressValidator = require('express-validator');
 var EJSLayout = require('express-ejs-layouts');
+var session = require('express-session');
 
 var db = null;
 
@@ -27,6 +28,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 app.use(cookieParser());
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true})
+);
 app.use(express.static(path.join(__dirname, 'public')));
 /* Layout */
 app.use(EJSLayout);

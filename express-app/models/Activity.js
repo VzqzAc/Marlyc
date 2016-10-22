@@ -14,6 +14,7 @@ var activitySchema = new Schema({
 
 activitySchema.methods.all = function({}, callback) {
   return mongoose.model('Activity').find({}, function(error, activities) {
+    console.log(activities);
     if(error) callback(error, "");
     else callback("", activities);
   });
