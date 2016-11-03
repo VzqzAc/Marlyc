@@ -17,6 +17,12 @@
       </div>
     </div>
   </div>
+  <select class="form-control" name="activity">
+    <% console.log(activities); for(var act in activities) { %>
+      <div><% console.log(activities)%></div>
+      <option name='<%- activities[act].name.toLowerCase() %>'><%- activities[act].name %></options>
+    <% } %>
+  </select>
   <div class="form-group">
     <div class="row">
       <div class="col-md-3">
@@ -51,9 +57,3 @@
     <label for="ocupation">Ocupation</label>
     <input class="form-control" id="ocupation" name="ocupation" placeholder="Ocupation">
   </div>
-  <select class="form-control" name="activity">
-    <% console.log(activities); for(var act in activities) { %>
-      <div><% console.log(activities)%></div>
-      <option name='<%- activities[act].name.toLowerCase() %>'><%- activities[act].name %></options>
-    <% } %>
-  </select>
