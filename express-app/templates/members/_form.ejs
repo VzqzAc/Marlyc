@@ -1,59 +1,69 @@
   <div class="form-group">
-    <label for="name">Name</label>
-    <input class="form-control" id="name" name="name" placeholder="Name">
-  </div>
-  <div class="form-group">
-    <label for="address">Address</label>
-    <input class="form-control" id="address" name="address" placeholder="Address">
-  </div>
-  <div class="form-group">
-    <label for="primary-phone">Primary phone</label>
     <div class="row">
       <div class="col-md-6">
-        <input id="primary-phone" type="tel" class="form-control" name="phone" placeholder="Primary phone">
+        <label for="firstname">Nombre(s)</label>
+        <input class="form-control" id="firstname" name="firstname" placeholder="Nombre">
       </div>
       <div class="col-md-6">
-        <button class="btn btn-sm btn-primary pull-right disabled">Additional phone</button>
+        <label for="lastname">Apellidos</label>
+        <input class="form-control" id="lastname" name="lastname" placeholder="Apellidos">
       </div>
     </div>
   </div>
-  <select class="form-control" name="activity">
-    <% console.log(activities); for(var act in activities) { %>
-      <div><% console.log(activities)%></div>
-      <option name='<%- activities[act].name.toLowerCase() %>'><%- activities[act].name %></options>
-    <% } %>
-  </select>
+  <div class="form-group">
+    <label for="address">Dirección</label>
+    <input class="form-control" id="address" name="address" placeholder="Address">
+  </div>
+  <div class="form-group">
+    <label for="primary-phone">Teléfono</label>
+    <div class="row">
+      <div class="col-md-6">
+        <input id="primary-phone" type="tel" class="form-control" name="phone" placeholder="Teléfono">
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-sm btn-primary pull-right disabled">Teléfono adicional</button>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="activity">Actividad</label>
+    <select class="form-control" name="activity" id="activity">
+      <% for(var key in activities) { %>
+        <option name='<%- activities[key].name.toLowerCase() %>'><%- activities[key].name %></options>
+      <% } %>
+    </select>
+  </div>
   <div class="form-group">
     <div class="row">
       <div class="col-md-3">
-        <label for="credentialType">Credential Type</label>
-        <input class="form-control" id="credentialType" name="credentialTypeID"  placeholder="Credential type">
+        <label for="credentialType">Tipo de credencial</label>
+        <input class="form-control" id="credentialType" name="credentialTypeID"  placeholder="Tipo de credencial">
       </div>
       <div class="col-md-3">
-        <label for="credentialNumber">Credential number</label>
-        <input class="form-control" id="credentialNumber" type="number" name="credentialNumber" placeholder="Credential number">
+        <label for="credentialNumber">ID de credencial</label>
+        <input class="form-control" id="credentialNumber" type="text" name="credentialNumber" placeholder="ID de credencial" readonly>
       </div>
       <div class="col-md-3">
-        <label for="requestNumber">Request number</label>
-        <input class="form-control" id="requestNumber" type="number" name="requestNumber" placeholder="Request number">
+        <label for="requestNumber">Número de folio</label>
+        <input class="form-control" id="requestNumber" type="number" name="requestNumber" placeholder="Número de folio">
       </div>
       <div class="col-md-3">
-        <label for="inscriptionDate">Inscription date</label>
+        <label for="inscriptionDate">Fecha de inscripción</label>
         <input class="form-control datepicker" id="inscriptionDate" name="inscriptionDate" placeholder="dd-mm-aaaa">
       </div>
     </div>
   </div>
   <div class="form-group row">
     <div class="col-md-2">
-      <label for="birthDate">Date of birth</label>
+      <label for="birthDate">Fecha de nacimiento</label>
       <input class="form-control datepicker" id="birthDate" name="birthDate" placeholder="dd-mm-aaaa">
     </div>
     <div class="col-md-6">
-      <label for="birthPlace">Place of birth</label>
-      <input class="form-control" id="birthPlace" name="birthPlace" placeholder="Place of birth">
+      <label for="birthPlace">Lugar de nacimiento</label>
+      <input class="form-control" id="birthPlace" name="birthPlace" placeholder="Lugar de nacimiento">
     </div>
   </div>
   <div class="form-group">
-    <label for="ocupation">Ocupation</label>
-    <input class="form-control" id="ocupation" name="ocupation" placeholder="Ocupation">
+    <label for="ocupation">Ocupación</label>
+    <input class="form-control" id="ocupation" name="ocupation" placeholder="Ocupación">
   </div>

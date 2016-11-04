@@ -9,7 +9,7 @@ var memberSchema = new Schema({
   address: String,
   phone: Number,
   credentialTypeID: String,
-  credentialNumber: Number,
+  credentialNumber: String,
   requestNumber: Number,
   inscriptionDate: Date,
   birthDate: Date,
