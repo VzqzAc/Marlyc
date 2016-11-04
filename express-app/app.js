@@ -8,6 +8,7 @@ var routes = require('./routes/index');
 var expressValidator = require('express-validator');
 var EJSLayout = require('express-ejs-layouts');
 var session = require('express-session');
+var http = require('http');
 
 var db = null;
 
@@ -23,6 +24,7 @@ app.set('view engine', 'ejs');
 app.use('/scripts', express.static(__dirname + '/node_modules/bootstrap-datepicker/dist/js'));
 app.use('/scripts', express.static(__dirname + '/node_modules/bootstrap-datepicker/dist/locales'));
 app.use('/styles', express.static(__dirname + '/node_modules/bootstrap-datepicker/dist/css'));
+app.use('/scripts', express.static(__dirname + '/node_modules/socket.io-client'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -81,5 +83,29 @@ app.use(function(err, req, res, next) {
   });
 });
 
+let server = http.createServer(app);
 
-module.exports = app;
+
+/**
+ * Socket.io and SerialPort
+ */
+const SerialPort = require('serialport');
+const io = require('socket.io').listen(server);
+
+let port = new SerialPort("COM4", {
+  baudRate: 9600,
+  parser: SerialPort.parsers.readline("\n")
+});
+
+io.on('connection', (socket) => {
+  console.log('Socket connected');
+  port.on('data', (data) => {
+    console.log('Emitting: ', data);
+    socket.emit('UID', data);
+  });
+});
+
+module.exports = {
+  app: app,
+  server: server
+};
