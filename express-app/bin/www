@@ -4,7 +4,9 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var expressApp = require('../app');
+var app = expressApp.app;
+var server = expressApp.server;
 var debug = require('debug')('express-app:server');
 var http = require('http');
 var mongoose = require('mongoose');
@@ -22,9 +24,6 @@ var Members = require('../controllers/Members');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
 
 
 /**
@@ -37,7 +36,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/marlyc', function(err, db){
     console.log(err);
   } else {
     app.db = db;
-    http.createServer(app).listen(port, function(){
+    server.listen(port, function(){
       console.log('Express server listening on port ' + port);
     });
   }
