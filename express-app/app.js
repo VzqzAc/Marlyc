@@ -92,18 +92,18 @@ let server = http.createServer(app);
 const SerialPort = require('serialport');
 const io = require('socket.io').listen(server);
 
-let port = new SerialPort("COM4", {
-  baudRate: 9600,
-  parser: SerialPort.parsers.readline("\n")
-});
-
-io.on('connection', (socket) => {
-  console.log('Socket connected');
-  port.on('data', (data) => {
-    console.log('Emitting: ', data);
-    socket.emit('UID', data);
-  });
-});
+// let port = new SerialPort("COM4", {
+//   baudRate: 9600,
+//   parser: SerialPort.parsers.readline("\n")
+// });
+//
+// io.on('connection', (socket) => {
+//   console.log('Socket connected');
+//   port.on('data', (data) => {
+//     console.log('Emitting: ', data);
+//     socket.emit('UID', data);
+//   });
+// });
 
 module.exports = {
   app: app,

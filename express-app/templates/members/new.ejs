@@ -1,6 +1,14 @@
-<h1>Nuevo integrante</h1>
+<div class="row">
+  <div class="col-md-12">
+    <h1>
+      Nuevo integrante
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pictureIDModal">Capturar imagen</button>
+    </h1>
+  </div>
+</div>
 <form method="post">
   <%- include('_form', {activities: activities}) %>
-  <br><button class="btn btn-success" type="submit">Guardar</button>
+  <br><button class="btn btn-success" id="submit-form" type="submit" disabled>Guardar</button>
+  <%- include('captureModal') %>
 </form>
 <script src="/js/credentialID.js"></script>

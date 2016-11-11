@@ -16,6 +16,7 @@ var memberSchema = new Schema({
   birthPlace: String,
   ocupation: String,
   observations: {type: String, default: ""},
+  pictureID: { data: Buffer, contentType: String },
   _activity: {
     _id: {
       type: Number,

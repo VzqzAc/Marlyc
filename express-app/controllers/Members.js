@@ -46,7 +46,9 @@ module.exports = BaseController.extend({
                                 delete req.body.lastname; delete req.body.firstname;
                                 req.body['_activity'] = {},
                                 req.body._activity['_id'] = act._id;
-                                console.log('credNumb: ', req.body.credentialNumber);
+                                let base64ID = req.body.pictureID
+                                req.body.pictureID = { 'data': base64ID, 'contentType': 'image/jpeg'}
+                                console.log('credNumb: ', req.body.pictureID);
                                 req.body.inscriptionDate = Date.parse(Date(req.body.inscriptionDate));
                                 req.body.birthDate = Date.parse(Date(req.body.birthDate));
                                 Member.createMember(req.body, (err, success, createdMember) => {

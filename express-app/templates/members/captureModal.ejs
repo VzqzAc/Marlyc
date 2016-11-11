@@ -1,0 +1,26 @@
+<div class="modal fade" id="pictureIDModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Capturar imagen</h4>
+      </div>
+      <div class="modal-body">
+        <div id="camera" style="width:240px; height:320px; margin: 0 auto;">
+        </div>
+        <div id="result" style="width:240px; height:320px; margin: 0 auto; display:none">
+        </div>
+        <button type="button" class="btn btn-md btn-primary" id="snapshot" onclick="take_snapshot()">Capturar</button>
+        <div class="btn-group" id="options">
+          <button type="button" class="btn btn-success btn-sm" onclick="pictureIDAccepted()">Aceptar</button>
+          <button type="button" class="btn btn-danger btn-sm" onclick="reset_camera()">Tomar nueva</button>
+        </div>
+      </div>
+      <br>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+  <script src="/webcam/handler.js"></script>
+</div>

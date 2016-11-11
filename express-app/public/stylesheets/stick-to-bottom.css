@@ -1,0 +1,12 @@
+.right-camera {
+  position: relative;
+  bottom: 0
+  right: 0;
+}
+
+.bottom-option {
+    position:absolute;
+    bottom:0;
+    margin-bottom:7px;
+    left: 100px;
+  }
